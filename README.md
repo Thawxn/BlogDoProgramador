@@ -1,1 +1,1 @@
-# GuiaPress
+Primeira Versão do "GuiaPress" um blog com painel administrativo.

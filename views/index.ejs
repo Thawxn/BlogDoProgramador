@@ -1,7 +1,31 @@
 <%- include('partials/header.ejs') %>
 
 <body>
-    <h1>testando</h1>
+    <%- include('partials/homenavbar.ejs') %>
+    
+
+    <div class="container">
+        <hr>
+        <div class="mt-4 p-5 bg-dark text-white rounded">
+            <h1>Bem Vindo ao Blog do Progamador</h1>
+            <p>O blog do programador tras Artigos das principais tecnologia do momento da programação</p>
+        </div>
+        <% articles.forEach(article => { %>
+            <hr> 
+            <div class="card">
+                <div class="card-header">
+                    <%= article.title %>
+                </div>
+                <div class="card-body">
+                    <a href="/<%= article.slug %>" class="btn btn-primary">Ler Artigo</a>
+                </div>
+                
+            </div>
+            <br>
+
+        <% }) %>
+    </div>
+
 </body>
 
 <%- include('partials/footer.ejs') %>

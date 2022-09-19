@@ -1,0 +1,33 @@
+<%- include ('../../partials/header.ejs')%>
+<body>
+    <%- include ('../../partials/navbar.ejs')%>
+
+    <div class="container">
+        <div class="card mt-5" style="border: 0;" >
+            <div class="bg-white text-dark row g-0" style="justify-content: center;">
+              <div class="col-md-4" style="display:flex; justify-content: center; align-items: center; min-height: 150px;">
+                <h2 class="card-title">Faça o cadastro na nossa plataforma</h2>
+              </div>
+              <div class="col-md-8 bg-dark" style="border-radius: 15px; box-shadow: 3px 3px 10px #000; max-width: 500px;">
+                <div class="card-header text-white" style="border: 0;">
+                    <h2 class="card-title" >Cadastrar</h2>
+                </div>
+                <div class="card-body">
+
+                    <form method="post" action="/admin/create">
+                        <input type="email" name="email" placeholder="exemple@exemplo.com" class="form-control border-dark"><br>
+                        <input class="form-control border-dark" type="password" name="password" placeholder="********"><br>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary ">Cadastrar</button>
+                        </div>
+                    </form>
+                  
+                
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    
+</body>
+<%- include ('../../partials/footer.ejs')%>

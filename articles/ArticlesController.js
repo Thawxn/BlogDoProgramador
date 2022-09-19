@@ -92,7 +92,7 @@ router.get('/articles/page/:num', function(req, res){
     if(isNaN(page) || page == 1){
         offset = 0
     }else{
-        offset = parseInt(page) * 4;
+        offset = (parseInt(page) - 1) * 4;
     }
 
 
@@ -114,6 +114,7 @@ router.get('/articles/page/:num', function(req, res){
 
 
         var result = {
+            page : parseInt(page),
             next : next,
             articles : articles
         }
@@ -121,6 +122,7 @@ router.get('/articles/page/:num', function(req, res){
         Category.findAll().then(categories => {
             res.render('admin/articles/page', {result: result, categories: categories})
         })
+        
 
     })
 })

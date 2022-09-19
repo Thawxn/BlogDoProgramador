@@ -63,23 +63,65 @@ router.get('/admin/articles/edit/:id', function(req, res){
             })
 
         }else{
-            res.redirect('/admin/articles');
+            res.redirect('/');
         }
     }).catch(erro => {
-        res.redirect('/admin/articles')
+        res.redirect('/')
     })
 });
 
-router.get('/articles/update', function(req, res){
+router.post('/articles/update', function(req, res){
     var id = req.body.id;
     var title = req.body.title;
     var body = req.body.body;
-    var category = req.body.categoryId
+    var category = req.body.category;
 
     Article.update({title: title, slug: slugify(title), body: body, categoryId: category}, {
         where: {id: id}
     }).then(() => {
         res.redirect('/admin/articles')
+    }).catch(erro => {
+        res.redirect('/')
+    })
+})
+
+router.get('/articles/page/:num', function(req, res){
+    var page = req.params.num;
+    offset: 1
+
+    if(isNaN(page) || page == 1){
+        offset = 0
+    }else{
+        offset = parseInt(page) * 4;
+    }
+
+
+    Article.findAndCountAll({
+        limit: 4,
+        offset: offset,
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(articles => {
+
+
+        var next;
+        if(offset + 4 >= articles.count){
+            next = false;
+        } else {
+            next = true;
+        }
+
+
+        var result = {
+            next : next,
+            articles : articles
+        }
+
+        Category.findAll().then(categories => {
+            res.render('admin/articles/page', {result: result, categories: categories})
+        })
+
     })
 })
 

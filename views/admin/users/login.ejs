@@ -1,6 +1,5 @@
 <%- include ('../../partials/header.ejs')%>
 <body>
-    <%- include ('../../partials/navbar.ejs')%>
 
     <div class="container">
         <div class="card mt-5" style="border: 0;" >
@@ -20,6 +19,8 @@
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary ">Entrar</button>
                         </div>
+                        <br>
+                        <a href="/admin/users/create" type="submit" class="btn btn-success d-grid gap-2 col-6 mx-auto ">Criar uma conta</a>
                     </form>
                   
                 
@@ -28,6 +29,42 @@
             </div>
           </div>
     </div>
+    <footer class="bg-light text-center text-lg-start" style="margin-top: 191px;">
+      <!-- Grid container -->
+      <div class="container p-2">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-12 mb-2 mb-md-0">
+            <h6 class="text-uppercase">Sobre o Blog do programador</h6>
+    
+            <p>
+              Blog do programador, aqui trazemos as principais noticias,
+              artigos do mundo da programação, faça o cadastro e participe da nossa plataforma, e crie seu proprio artigo.
+            </p>
+          </div>
+          <!--Grid column-->
+    
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-12 mb-2 mb-md-0">
+            <h6 class="text-uppercase">Login no Blog do programador</h6>
+    
+            <p>
+              Entra na nossa plataforma e tenha acesso a artigos, podendo criar, apagar e modificar os artigos.
+            </p>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright: ThawanMarques
+      </div>
+      <!-- Copyright -->
+    </footer>
     
 </body>
 <%- include ('../../partials/footer.ejs')%>

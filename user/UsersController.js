@@ -56,7 +56,7 @@ router.post('/authenticate', function(req,res){
                     id: user.id,
                     email: user.email
                 }
-                res.json(req.session.user)
+                res.redirect('/admin/articles')
             }else{
                 res.redirect('/login')
             }
@@ -67,6 +67,11 @@ router.post('/authenticate', function(req,res){
 
 
     })
+});
+
+router.get('/logout', function(req,res){
+    req.session.user = undefined
+    res.redirect('/')
 })
 
 module.exports = router;
